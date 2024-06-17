@@ -20,6 +20,15 @@ const filesToCreate = [
   { path: 'pages/index.js', template: path.join(currentProjectDir, '../pages', 'index.js') },
   { path: 'app/globals.css', template: path.join(currentProjectDir, '../app', 'globals.css') },
 
+  // From Component/molecules Directory
+  { path: 'components/molecules/Mole.jsx', template: path.join(currentProjectDir, '../components/molecules', 'Mole.jsx') },
+ 
+  // From Component/molecules Directory
+  { path: 'components/organisms/Organ.jsx', template: path.join(currentProjectDir, '../components/organisms', 'Organ.jsx') },
+ 
+  // From Component/molecules Directory
+  { path: 'components/templates/Temp.jsx', template: path.join(currentProjectDir, '../components/templates', 'Temp.jsx') },
+ 
   // From Component/atoms Directory
   { path: 'components/atoms/anchorTag.jsx', template: path.join(currentProjectDir, '../components/atoms', 'anchorTag.jsx') },
   { path: 'components/atoms/Button.jsx', template: path.join(currentProjectDir, '../components/atoms', 'Button.jsx') },
