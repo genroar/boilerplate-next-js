@@ -22,8 +22,8 @@ const filesToCreate = [
   { path: 'jsconfig.json', template: path.join(currentProjectDir, '../jsconfig.json') },
   { path: 'postcss.config.mjs', template: path.join(currentProjectDir, '../postcss.config.mjs') },
   { path: 'tailwind.config.js', template: path.join(currentProjectDir, '../tailwind.config.js') },
-  { path: '.gitignore', template: path.join(currentProjectDir, '../.gitignore') },
-  // { path: 'README.md', template: path.join(currentProjectDir, '../README.md') }
+  // { path: '.gitignore', template: path.join(currentProjectDir, '../.gitignore') },
+  { path: 'README.md', template: path.join(currentProjectDir, '../README.md') }
 ];
 
 // Create project directory and necessary subdirectories
