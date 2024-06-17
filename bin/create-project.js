@@ -18,12 +18,12 @@ const filesToCreate = [
   { path: 'pages/index.js', template: path.join(currentProjectDir, '../pages', 'index.js') },
   { path: 'app/globals.css', template: path.join(currentProjectDir, '../app', 'globals.css') },
   { path: 'package.json', template: path.join(currentProjectDir, '../package.json') },
-  { path: 'next.config.js', template: path.join(currentProjectDir, '../next.config.mjs') },
+  { path: 'next.config.mjs', template: path.join(currentProjectDir, '../next.config.mjs') },
   { path: 'jsconfig.json', template: path.join(currentProjectDir, '../jsconfig.json') },
   { path: 'postcss.config.mjs', template: path.join(currentProjectDir, '../postcss.config.mjs') },
   { path: 'tailwind.config.js', template: path.join(currentProjectDir, '../tailwind.config.js') },
   { path: '.gitignore', template: path.join(currentProjectDir, '../.gitignore') },
-  { path: 'README.md', template: path.join(currentProjectDir, '../README.md') }
+  // { path: 'README.md', template: path.join(currentProjectDir, '../README.md') }
 ];
 
 // Create project directory and necessary subdirectories
