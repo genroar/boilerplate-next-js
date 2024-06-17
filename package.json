@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate-next-js",
-  "version": "0.1.0",
-  "private": true,
+  "name": "genroar-next",
+  "version": "0.1.2",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -18,5 +18,13 @@
     "tailwindcss": "^3.4.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.4"
-  }
+  },
+  "bin": {
+    "genroar-next": "bin/create-project.js"
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "tailwind.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
