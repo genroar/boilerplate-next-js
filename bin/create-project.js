@@ -17,6 +17,7 @@ const currentProjectDir = path.resolve(__dirname); // Get the directory where th
 const filesToCreate = [
   { path: 'pages/index.js', template: path.join(currentProjectDir, '../pages', 'index.js') },
   { path: 'app/globals.css', template: path.join(currentProjectDir, '../app', 'globals.css') },
+  { path: 'components/*', template: path.join(currentProjectDir, '../components', '*') },
   { path: 'package.json', template: path.join(currentProjectDir, '../package.json') },
   { path: 'next.config.mjs', template: path.join(currentProjectDir, '../next.config.mjs') },
   { path: 'jsconfig.json', template: path.join(currentProjectDir, '../jsconfig.json') },
