@@ -11,19 +11,19 @@ if (!projectName) {
   process.exit(1);
 }
 
-// Define paths to template files
-const templatesDir = path.join(__dirname, 'templates');
+// Define paths to template files within your current project structure
+const currentProjectDir = path.resolve(__dirname); // Get the directory where the script is located
 
 const filesToCreate = [
-  { path: 'pages/index.js', template: 'index.js' },
-  { path: 'app/globals.css', template: 'globals.css' },
-  { path: 'package.json', template: 'package.json' },
-  { path: 'next.config.js', template: 'next.config.js' },
-  { path: 'jsconfig.json', template: 'jsconfig.json' },
-  { path: 'postcss.config.mjs', template: 'postcss.config.mjs' },
-  { path: 'tailwind.config.js', template: 'tailwind.config.js' },
-  { path: '.gitignore', template: 'gitignore' },
-  { path: 'README.md', template: 'README.md' }
+  { path: 'pages/index.js', template: path.join(currentProjectDir, '../pages', 'index.js') },
+  { path: 'app/globals.css', template: path.join(currentProjectDir, '../app', 'globals.css') },
+  { path: 'package.json', template: path.join(currentProjectDir, '../package.json') },
+  { path: 'next.config.js', template: path.join(currentProjectDir, '../next.config.mjs') },
+  { path: 'jsconfig.json', template: path.join(currentProjectDir, '../jsconfig.json') },
+  { path: 'postcss.config.mjs', template: path.join(currentProjectDir, '../postcss.config.mjs') },
+  { path: 'tailwind.config.js', template: path.join(currentProjectDir, '../tailwind.config.js') },
+  { path: '.gitignore', template: path.join(currentProjectDir, '../.gitignore') },
+  { path: 'README.md', template: path.join(currentProjectDir, '../README.md') }
 ];
 
 // Create project directory and necessary subdirectories
@@ -34,7 +34,7 @@ fs.mkdirSync(path.join(projectPath, 'app'), { recursive: true });
 // Write files to project directory
 filesToCreate.forEach(file => {
   const filePath = path.join(projectPath, file.path);
-  const templateFilePath = path.join(templatesDir, file.template);
+  const templateFilePath = file.template;
   
   // Check if the template file exists
   if (fs.existsSync(templateFilePath)) {
