@@ -11,31 +11,39 @@ if (!projectName) {
   process.exit(1);
 }
 
-const templateDir = path.join(__dirname, '../templates');
+// Define paths to template files
+const templatesDir = path.join(__dirname, 'templates');
 
 const filesToCreate = [
-  { path: 'pages/index.js', template: 'pages/index.js' },
-  { path: 'app/globals.css', template: 'app/globals.css' },
+  { path: 'pages/index.js', template: 'index.js' },
+  { path: 'app/globals.css', template: 'globals.css' },
   { path: 'package.json', template: 'package.json' },
   { path: 'next.config.js', template: 'next.config.js' },
   { path: 'jsconfig.json', template: 'jsconfig.json' },
   { path: 'postcss.config.mjs', template: 'postcss.config.mjs' },
   { path: 'tailwind.config.js', template: 'tailwind.config.js' },
-  { path: '.gitignore', content: `node_modules\n.next\nout\n` },
+  { path: '.gitignore', template: 'gitignore' },
   { path: 'README.md', template: 'README.md' }
 ];
 
+// Create project directory and necessary subdirectories
 fs.mkdirSync(projectPath, { recursive: true });
 fs.mkdirSync(path.join(projectPath, 'pages'), { recursive: true });
 fs.mkdirSync(path.join(projectPath, 'app'), { recursive: true });
 
+// Write files to project directory
 filesToCreate.forEach(file => {
   const filePath = path.join(projectPath, file.path);
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  const content = file.template
-    ? fs.readFileSync(path.join(templateDir, file.template), 'utf8')
-    : file.content;
-  fs.writeFileSync(filePath, content);
+  const templateFilePath = path.join(templatesDir, file.template);
+  
+  // Check if the template file exists
+  if (fs.existsSync(templateFilePath)) {
+    // Read template content and write to project file
+    const content = fs.readFileSync(templateFilePath, 'utf8');
+    fs.writeFileSync(filePath, content);
+  } else {
+    console.error(`Template file '${file.template}' not found.`);
+  }
 });
 
 console.log(`Project ${projectName} created successfully.`);
