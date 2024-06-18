@@ -14,22 +14,14 @@ if (!projectName) {
 // Define paths to template files within your current project structure
 const currentProjectDir = path.resolve(__dirname); // Get the directory where the script is located
 
+const currentScriptDir = __dirname; // Directory where this script is located
+
 const filesToCreate = [
-  
-  // Getting files from different Directories 
   { path: 'pages/index.js', template: path.join(currentProjectDir, '../pages', 'index.js') },
   { path: 'app/globals.css', template: path.join(currentProjectDir, '../app', 'globals.css') },
-
-  // From Component/molecules Directory
   { path: 'components/molecules/Mole.jsx', template: path.join(currentProjectDir, '../components/molecules', 'Mole.jsx') },
- 
-  // From Component/molecules Directory
   { path: 'components/organisms/Organ.jsx', template: path.join(currentProjectDir, '../components/organisms', 'Organ.jsx') },
- 
-  // From Component/molecules Directory
   { path: 'components/templates/Temp.jsx', template: path.join(currentProjectDir, '../components/templates', 'Temp.jsx') },
- 
-  // From Component/atoms Directory
   { path: 'components/atoms/anchorTag.jsx', template: path.join(currentProjectDir, '../components/atoms', 'anchorTag.jsx') },
   { path: 'components/atoms/Button.jsx', template: path.join(currentProjectDir, '../components/atoms', 'Button.jsx') },
   { path: 'components/atoms/CheckBox.jsx', template: path.join(currentProjectDir, '../components/atoms', 'CheckBox.jsx') },
@@ -42,8 +34,6 @@ const filesToCreate = [
   { path: 'components/atoms/Logo.jsx', template: path.join(currentProjectDir, '../components/atoms', 'Logo.jsx') },
   { path: 'components/atoms/Paragraph.jsx', template: path.join(currentProjectDir, '../components/atoms', 'Paragraph.jsx') },
   { path: 'components/atoms/Span.jsx', template: path.join(currentProjectDir, '../components/atoms', 'Span.jsx') },
-  
-  // Root Directory
   { path: 'package.json', template: path.join(currentProjectDir, '../package.json') },
   { path: 'next.config.mjs', template: path.join(currentProjectDir, '../next.config.mjs') },
   { path: 'jsconfig.json', template: path.join(currentProjectDir, '../jsconfig.json') },
@@ -57,6 +47,12 @@ const filesToCreate = [
 fs.mkdirSync(projectPath, { recursive: true });
 fs.mkdirSync(path.join(projectPath, 'pages'), { recursive: true });
 fs.mkdirSync(path.join(projectPath, 'app'), { recursive: true });
+fs.mkdirSync(path.join(projectPath, 'public'), { recursive: true });
+fs.mkdirSync(path.join(projectPath, 'components'), { recursive: true });
+fs.mkdirSync(path.join(projectPath, 'components/atoms'), { recursive: true });
+fs.mkdirSync(path.join(projectPath, 'components/molecules'), { recursive: true });
+fs.mkdirSync(path.join(projectPath, 'components/organisms'), { recursive: true });
+fs.mkdirSync(path.join(projectPath, 'components/templates'), { recursive: true });
 
 // Write files to project directory
 filesToCreate.forEach(file => {
@@ -69,7 +65,7 @@ filesToCreate.forEach(file => {
     const content = fs.readFileSync(templateFilePath, 'utf8');
     fs.writeFileSync(filePath, content);
   } else {
-    console.error(`Template file '${file.template}' not found.`);
+    console.error(`Template file '${templateFilePath}' not found. Skipping...`);
   }
 });
 

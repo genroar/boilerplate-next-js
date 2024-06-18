@@ -1,6 +1,6 @@
 {
   "name": "genroar-next",
-  "version": "0.5.7",
+  "version": "0.5.26",
   "private": false,
   "scripts": {
     "dev": "next dev",
